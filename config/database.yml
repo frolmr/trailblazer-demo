@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: trailblazer-demo_development
+test:
+  <<: *default
+  database: trailblazer-demo_test
+production:
+  <<: *default
+  database: trailblazer-demo_production
+  username: trailblazer-demo
+  password: <%= ENV['TRAILBLAZER-DEMO_DATABASE_PASSWORD'] %>
